@@ -1,33 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
-<body>
-    <div style="height:100vh; background-color:royalblue;"></div>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <div id="v1frame" , autobuffer preload style="height:1000vh;">
-        <div class="sticky-top" style="z-index:-1">
-            <video id="video1" src="https://web.cw.com.tw/climate-2020/landing/cover.mp4" style="width:100vw;"></video>
-        </div>
-        <div class="row" style="height:100vh">
-            <div class="col-6"></div>
-            <div class="col-6" style="height:100vh;background-color:rgba(0,0,0,0.5);"></div>
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+    <style>
+        #video{
+            position:fixed;
+            width:100vw;
+            height:100vh;
+            z-index:-1;
+        }
+        h1 span{
+            background-color:white;
+        }
+    </style>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div>
+        <video id="video" src="https://web.cw.com.tw/climate-2020/landing/cover.mp4"></video>
+    </div>
+    <div style="height:500vh;background-color:rgba(0,0,0,0.5)">
+        <div style="position:relative;top:20vh;left:20vw;height:50vh;width:20vw;background-color:white;">
+            <h1><span>Touching sentence 1: ohohoh</span></h1>
         </div>
     </div>
-    <div style="height:100vh;background:grey;"></div>
-    
-    <div id="v2frame" , autobuffer preload style="height:1000vh">
-        <div class="sticky-top">
-            <video id="video2" src="https://web.cw.com.tw/climate-2020/deforestation/cover.mp4" style="width:100vw;"></video>
+    <div style="height:500vh;background-color:rgba(128,0,0,0.5)">
+        <div style="position:relative;top:20vh;left:60vw;height:50vh;width:20vw;background-color:white;">
+            <h1><span>Touching sentence 2: ohohoh</span></h1>
         </div>
     </div>
-    <div style="height:100vh;background:grey;"></div>
-</body>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            var max_scroll = $(document).height() - $(window).height();
+            $(window).scroll(function(){
+                var scrolled = $(document).scrollTop();
+                var video = $("#video").get(0);
+                var videoLength = video.duration;
+                video.currentTime = scrolled / max_scroll * videoLength;
+            });
+
+        });
+    </script>
+  </body>
 </html>
